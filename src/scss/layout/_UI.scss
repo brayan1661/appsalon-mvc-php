@@ -1,0 +1,72 @@
+@use '../base/variables' as v;//AQUI IMPORTAMOS LA BASE Y LAS VARIABLES y con este codigo es como importamos nuestras variables en la nueva sintaxis de sass
+@use '../base/mixins' as m;//AQUI IMPORTAMOS LA BASE Y LAS VARIABLES y con este codigo es como importamos nuestras variables en la nueva sintaxis de sass
+
+
+.contenedor-app{//aqui este contenedor es el que esta en el archivo layout de la carpeta auth y la carpeta views
+    @include m.tablet{//recordar que esto es un media query
+        display: grid;
+        grid-template-columns: repeat(2,1fr);//creamos 2 columnas
+        min-height: 100vh;//altura minima
+    }
+
+    .imagen{
+        height: 25rem;//es para ver la imagen en un dispositivo mas pequeÑo la imagen se hace mas pequeña
+        background-image: url(../img/1.jpg);//recordemos que esta direccion esta guardada en el archivo gulpfile.js en el path en la carpeta src
+        background-size: cover;
+        background-position: center center;
+        @include m.tablet{//este media query es para que la imagen se buelva mas grande de nuevo en un dispositivo mas grande
+            height: auto;
+        }
+    }
+
+    .app{
+        width: 95%;//de esta forma las letras de login no llegaran hasta las esquinas
+        margin: 0 auto;//para que este centrado
+        padding: 3rem 0;//paddin de 3rem arriba y abajo y 0 izquierda y derecha es para que el app no toque las orillas
+
+        //aqui es la parte derecha del los servicios no de l imagen entonces este codigo es slo para que halla scrol en los servicios y no en la imagen
+        @include m.tablet{
+            overflow: scroll;
+        }
+    }
+    
+}
+
+
+.barra{
+    .nombree{
+        min-height: 2%;
+        font-weight: bold;
+        background-color: v.$rosado;
+        border-radius: 1rem;
+    }
+    .barra{
+        @include m.barra(v.$negro, v.$blanco);
+    }
+    margin: v.$separacion 0;//arriba y abajo y cero izquierda y derecha
+
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .boton{
+        @include m.boton(v.$negro, v.$blanco);
+        margin: 0;
+    }
+
+}
+
+.barra-servicios{
+    margin-bottom: v.$separacion;
+
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .boton{
+        margin:0 0 1rem 0;
+    }
+}

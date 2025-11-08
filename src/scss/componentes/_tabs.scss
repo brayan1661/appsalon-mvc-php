@@ -1,0 +1,51 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.tabs{
+
+
+    //AQUI ES PARA ALINEARLOS DE IZUIRA A DERECHA LOS BOTONES DE TABS
+    @include m.desktop{
+        display: flex;
+        //margin-inline-start: auto;
+    }
+
+
+
+    button{
+        background-color: v.$azul;
+        border: none;
+        color: v.$blanco;
+        padding: 1rem;//en todas la direcciones
+
+
+
+
+        //aqui este codigo sigueinte es para que se vea mejor en una pantalla mas pequeña
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-weight: v.$bold;
+        transition: all 750ms ease;//este codigo es para que las transisiones en el cursosr se vena mejores
+
+
+
+        &:hover{
+            cursor: pointer;
+            background-color: darken(v.$azul, 19%);
+        }
+
+
+
+        &.actual{//este codigo es para cuando estemos en el boton actual cambie de color blanco para diferenciar en que color estamso 
+            background-color: v.$blanco;
+            color: v.$azul;
+        }
+
+
+
+
+    }
+}

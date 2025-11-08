@@ -1,0 +1,37 @@
+@use '../base/variables' as v;
+
+
+.citas{
+    list-style: none;//aqui es para quitarle la viÑeta del id y tambien para 
+    padding: 0;//y este paddin es para hacerlo mas a la izquiera porque por default esta hacia la derecha
+
+    li{
+        padding: 1rem;
+        border-top: 2px solid v.$plateado;
+    }
+
+    p{
+        font-weight: v.$bold;
+        color: v.$azul;
+    }
+
+    span,
+    .servicio{
+        font-weight: v.$regular;
+        color:v.$blanco
+    }
+
+}
+
+.servicios{//aqui decimos en .servicios hereda todo de citas
+    @extend .citas;
+
+    .acciones{
+        margin: 0;
+    }
+
+    .boton,
+    .boton-eliminar{
+        margin: 0;
+    }
+}

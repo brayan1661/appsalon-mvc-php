@@ -1,0 +1,41 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.listado-servicios {//esta clase esta en el index de la carpeta views
+    display: grid;
+    gap: 2rem;//separacion hacia abajo
+    @include m.tablet {//aqui es para cuando estemos en una tablet que se bena 2 columnas
+        @include m.grid(2, 2rem);
+    }
+
+    .servicio {
+        background-color: v.$blanco;
+        padding: 3rem;//para pasar mas hacia dentro los textos y el precio que no se vea que como se estubieran saliendo
+        border-radius: 1rem;//esquinas redondeadas
+        transition-property: transform;//aqui es para que la transicion se vea mas lenta mas englobado y lo activamos con este primero y abajo le ponemos 300ms y entonces va buscar la propiedad de transform scale que esta abajo que tiene 1.1
+        transition-duration: 300ms;
+        text-align: center;//en un dispositivo movil que las letras se vean centradas
+
+        &.seleccionado {//este codigo es para cuando estemos seleccionando los servicios que querramos se ballan cambiando a color azul
+            background-color: v.$azul;
+            p {
+                color: v.$blanco;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.12);//aqui vamos a poner una tranncicion para que cresca cada vez que asercamos el cursor
+        }
+
+        p {
+            color: v.$negro;//darel color a los parrafos
+            margin: 0 0 calc( v.$separacion / 4) 0;//aqui tenemos una separacion para que los cuadritos se vena bien los servicios
+        }
+        .precio-servicio {
+            color: v.$azul;//darle color al precio
+            font-weight: v.$bold;//darle negrita a los precios
+            font-size: 3rem;//un poco mas grande los precios
+            margin: 0;//aqui eliminamos el margen hacia abjo para que se vea mejor
+        }
+    }
+}

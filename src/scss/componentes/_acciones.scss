@@ -1,0 +1,18 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.acciones{
+    margin-top: v.$separacion;
+    @include m.tablet{
+        display:flex;//por defecto los va poner de izquierda a derecha
+        justify-content: space-between;//esto los separa uno del otro
+        align-items: center;
+    }
+
+    a{
+        color:v.$blanco;
+        display:block;
+        margin-bottom: calc(v.$separacion/2) ;
+        text-align: center;
+    }
+}

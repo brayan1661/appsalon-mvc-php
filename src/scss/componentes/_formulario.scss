@@ -1,0 +1,35 @@
+@use 'base/variables' as v;;
+@use 'base/mixins' as m;
+
+
+.formulario{
+    margin-top: 5rem;
+    width: 100%;
+}
+
+
+.campo{
+    display:flex;//para que me de acceso a todas las propiedades de flexbox
+    margin-bottom: 2rem;
+    align-items: center;//para que esten centrados horizontalmente
+    label{
+        flex:0 0 10rem;//cero como factor de crecimiento, cero de sring y 10rem de base
+    }
+
+
+    input{
+        flex: 1;
+        border:none;
+        padding: calc(v.$separacion/4);//este codigo tiene que ver con el que esta en las variables con separacion de 5 entre 4
+        border-radius: 1rem;
+
+
+        &:disabled{
+            background-color: lighten(v.$negro, 39%);
+            color: v.$blanco;
+            cursor: not-allowed;//osea no esta permitido
+        }
+
+        
+    }
+}
